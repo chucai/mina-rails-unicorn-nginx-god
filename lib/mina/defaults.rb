@@ -4,7 +4,7 @@
 task :defaults do
   set_default :term_mode,       :pretty
   set_default :rails_env,       'production'
-  set_default :shared_paths,    ['tmp', 'log', 'public/system'] # last one is for paperclip
+  set_default :shared_paths,    ['tmp', 'config/database.yml', 'config/secrets.yml', 'log', 'public/system'] # last one is for paperclip
   set_default :branch,          'master'
   set_default :rvm_string,      nil
   set_default :rvm_path,        nil
@@ -26,7 +26,7 @@ task :defaults do
   set_default :unicorn_pid,     "#{pids_path}/unicorn.pid"
   set_default :unicorn_config,  "#{config_path}/unicorn.rb"
   set_default :unicorn_script,  "#{services_path!}/unicorn-#{app!}"
-  set_default :unicorn_workers, 1
+  set_default :unicorn_workers, 2 
   # set_default :unicorn_bin,   'bundle exec unicorn' # you may prefer this over the line below
   set_default :unicorn_bin,     "#{deploy_to}/#{current_path}/bin/unicorn_rails"
   set_default :unicorn_user,    user
